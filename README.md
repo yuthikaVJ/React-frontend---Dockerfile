@@ -25,34 +25,34 @@ If you are developing a production application, we recommend using TypeScript wi
 
 1. **Navigate to the project directory:**
    ```cmd
-   cd c:\Users\USER\Desktop\Docker\frontend
+   cd <file path>
    ```
 
 2. **Build the Docker image:**
    ```cmd
-   docker build -t react-frontend .
+   docker build -t <Image name> .
    ```
 
    Or with a specific tag:
    ```cmd
-   docker build -t react-frontend:latest .
+   docker build -t <Image name>:<tag> .
    ```
 
 ### Running the Container
 
 1. **Run the container in development mode:**
    ```cmd
-   docker run -p 3000:3000 react-frontend
+   docker run --name <container name > -p <PORT>:5173 <image name or ID>
    ```
 
 2. **Run the container in detached mode (background):**
    ```cmd
-   docker run -d -p 3000:3000 --name react-app react-frontend
+   docker run --name <container name > -d -p <PORT>:5173  <image name or ID>
    ```
 
 3. **Run with volume mounting for development (live reload):**
    ```cmd
-   docker run -p 3000:3000 -v "%cd%":/app -v /app/node_modules react-frontend
+   ocker run --name <container name > -d -p <port>:5173 -v /app/node_modules -v ${PWD}:/app -e CHOKIDAR_USEPOLLING=true <IMABE NAME OR ID>
    ```
 
 ### Docker Commands Reference
@@ -85,14 +85,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Accessing the Application
 
 Once the container is running, open your browser and navigate to:
-- **Development server:** http://localhost:3000
+- **Development server:** http://localhost:<PORT>
 
-### Troubleshooting
-
-- **Port already in use:** Change the port mapping (e.g., `-p 3001:3000`)
-- **Build fails:** Ensure Dockerfile exists and all dependencies are properly configured
-- **Container stops immediately:** Check container logs with `docker logs <container-name>`
-
-### Production Build
 
 For production deployment, the Dockerfile should build the optimized production bundle and serve it with a web server like Nginx.
