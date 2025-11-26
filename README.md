@@ -85,7 +85,7 @@ If you are developing a production application, we recommend using TypeScript wi
 ### Accessing the Application
 
 Once the container is running, open your browser and navigate to:
-- **Development server:**  http://localhost:Port
+- **Development server:**  http://localhost:8080     (Mention your port number)
 
 
 For production deployment, the Dockerfile should build the optimized production bundle and serve it with a web server like Nginx.
